@@ -28,7 +28,17 @@
                 </div>
 
                 <div class="col-md-2">
-                    <div>Blog tags go here!</div>
+                    <div>
+                        {% for post in posts %}
+                            <p>Post: {{ post }}</p>
+                        {% endfor %}
+                        {% for tag in tags %}
+                        <p>Tag: <a href="{% url 'blog_list' tag.pk %}">{{ tag.name }} </a>{{ tag.posts.count }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="years">
+
+                    </div>
                 </div>
             </div>
 
@@ -53,5 +63,6 @@
                 <p>&copy; My Blog 2014</p>
             </div>
         </div>
+    <div class="pull-right">Welcome user from {{ location.city }}!</div>
     </body>
 </html>

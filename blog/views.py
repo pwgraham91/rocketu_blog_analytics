@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from blog.models import Post
+from blog.models import Post, Tag
 
 
 def blog(request):
@@ -14,3 +14,13 @@ def post(request, pk):
     return render(request, 'post.html', {
         'post': post_obj
     })
+
+
+def blog_list(request, pk):
+    posts_specific = Post.objects.filter(tags__pk=pk)
+    tag = Tag.objects.get(pk=pk)
+    data = {
+        'posts_specific': posts_specific,
+        'tag': tag
+    }
+    return render(request, 'blog_list.html', data)
