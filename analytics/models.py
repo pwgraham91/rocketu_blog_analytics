@@ -1,4 +1,6 @@
 from django.db import models
+from django.db.models import URLField
+from localflavor.us.models import USStateField
 
 
 class Page(models.Model):
@@ -19,6 +21,7 @@ class Location(models.Model):
     def __unicode__(self):
         return u"{}, {} {}".format(self.city, self.region, self.country)
 
+
 class View(models.Model):
     date = models.DateField(auto_now_add=True)
     latitude = models.FloatField(blank=True, null=True)
@@ -30,3 +33,5 @@ class View(models.Model):
 
     def __unicode__(self):
         return u"{} {}".format(self.location, self.ip_address)
+    #django local flavor to show us states
+

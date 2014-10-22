@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,6 +29,11 @@
                 </div>
 
                 <div class="col-md-2">
+
+
+                            <h1>Here</h1>
+                            <a href="{{ available_ad.url }}"><img src="{{ available_ad.image.url }}"></a>
+
                     <div>
                         {% for post in posts %}
                             <p>Post: {{ post }}</p>

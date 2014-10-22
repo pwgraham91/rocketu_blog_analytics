@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.conf.urls import patterns, url
+from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
@@ -9,3 +11,4 @@ urlpatterns = patterns('',
     url(r'^blog_list/(?P<pk>\w+)/$', 'blog.views.blog_list', name='blog_list'),
 
 )
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
